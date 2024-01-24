@@ -8,4 +8,4 @@ console.log('Modified URL:', modifiedUrl);
 return modifiedUrl;
 }
 
-export default getCroppedImageUrl 
+export default getCroppedImageUrl  
