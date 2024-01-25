@@ -1,6 +1,7 @@
 
 import useData from "./useData";
 import { Genre } from "./useGenre";
+import platform from "../data/platform";
 
  interface Platform{
     id:number
@@ -9,6 +10,6 @@ import { Genre } from "./useGenre";
  }
 
 
-const usePlatform = ()=> useData<Platform>('/platforms/lists/parents',)
+const usePlatform = ()=> ({data:platform ,isLoading:false,error:null})
 
 export default usePlatform;

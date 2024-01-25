@@ -1,5 +1,5 @@
 import { Image } from '@chakra-ui/react';
-
+import genres from "../data/genres"
 import useData from "./useData";
 
 export interface Genre {
@@ -8,6 +8,6 @@ export interface Genre {
     image_background:string
 }
 
-const useGenres =()=>useData<Genre>('/genres')
+const useGenres =()=>({data:genres,isLoading:false,error:null})
 
 export default useGenres;
