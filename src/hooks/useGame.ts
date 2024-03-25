@@ -1,6 +1,6 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { GameQuery } from "./../App";
-import { Platform } from "./usePlatform";
+import { Platform } from "./usePlatforms";
 import APIClient, { FetchGenre } from "../services/api-clinet";
 const apiClinet = new APIClient<Game>("/games");
 export interface Game {

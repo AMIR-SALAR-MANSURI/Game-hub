@@ -1,4 +1,4 @@
-import genres from "../data/genres";
+import genre from "../data/genres";
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../services/api-clinet";
 
@@ -14,7 +14,7 @@ const useGenres = () =>
     queryKey: ["genres"],
     queryFn: apiClinet.getAll,
     staleTime: 24 * 60 * 60 * 60 * 1000, //24h
-    initialData: { count: genres.length, results: genres },
+    initialData: { next: null, count: genre.length, results: genre },
   });
 
 export default useGenres;
