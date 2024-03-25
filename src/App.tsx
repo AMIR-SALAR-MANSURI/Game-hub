@@ -11,8 +11,8 @@ import GameHeading from "./components/GameHeading";
 import { useReactToPrint } from "react-to-print";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId: number;
   sortOrder: string;
   searchText: string;
 }
@@ -41,8 +41,10 @@ function App() {
         <Show above="lg">
           <GridItem area="aside" paddingX="5px">
             <GenreList
-              selectedGenre={gameQuery.genre}
-              onSelecteGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+              selectedGenreId={gameQuery.genreId}
+              onSelecteGenre={(genre) =>
+                setGameQuery({ ...gameQuery, genreId: genre.id })
+              }
             />
           </GridItem>
         </Show>
@@ -52,9 +54,9 @@ function App() {
             <Flex paddingLeft={9}>
               <Box marginRight={5}>
                 <PlatformSelector
-                  selectedPlatform={gameQuery.platform}
+                  selectedPlatformId={gameQuery.platformId}
                   onSelectPlatform={(platform) =>
-                    setGameQuery({ ...gameQuery, platform })
+                    setGameQuery({ ...gameQuery, platformId: platform.id })
                   }
                 />
               </Box>
