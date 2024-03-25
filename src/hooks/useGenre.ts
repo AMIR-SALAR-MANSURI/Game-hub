@@ -1,8 +1,8 @@
-import { Image } from "@chakra-ui/react";
 import genres from "../data/genres";
-import { useQueries, useQuery } from "@tanstack/react-query";
-import apiClinet, { FetchGenre } from "../services/api-clinet";
+import { useQuery } from "@tanstack/react-query";
+import APIClient from "../services/api-clinet";
 
+const apiClinet = new APIClient<Genre>("/genres");
 export interface Genre {
   id: number;
   name: string;
@@ -12,8 +12,7 @@ export interface Genre {
 const useGenres = () =>
   useQuery({
     queryKey: ["genres"],
-    queryFn: () =>
-      apiClinet.get<FetchGenre<Genre>>("/genres").then((res) => res.data),
+    queryFn: apiClinet.getAll,
     staleTime: 24 * 60 * 60 * 60 * 1000, //24h
     initialData: { count: genres.length, results: genres },
   });

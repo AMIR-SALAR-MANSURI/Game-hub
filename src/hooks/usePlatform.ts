@@ -1,8 +1,9 @@
 import { Genre } from "./useGenre";
 import platform from "../data/platform";
 import { useQuery } from "@tanstack/react-query";
-import apiClinet, { FetchGenre } from "../services/api-clinet";
+import APIClient, { FetchGenre } from "../services/api-clinet";
 
+const apiClinet = new APIClient<Platform>("/platforms/lists/parents");
 export interface Platform {
   id: number;
   name: string;
@@ -12,10 +13,7 @@ export interface Platform {
 const usePlatform = () =>
   useQuery({
     queryKey: ["platforms"],
-    queryFn: () =>
-      apiClinet
-        .get<FetchGenre<Platform>>("/platforms/lists/parents")
-        .then((res) => res.data),
+    queryFn: apiClinet.getAll,
     staleTime: 24 * 60 * 60 * 60 * 1000, //24h
     initialData: { count: platform.length, results: platform },
   });
