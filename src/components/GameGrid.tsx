@@ -49,7 +49,7 @@ export default function GameGrid({ gameQuery }: Props) {
         ))}
       </SimpleGrid>
       {hasNextPage && (
-        <Button onClick={() => fetchNextPage()} marginY={5}>
+        <Button onClick={() => fetchNextPage()} marginY={5} marginX={10}>
           {isFetchingNextPage ? "Loading" : "Load More"}
         </Button>
       )}
