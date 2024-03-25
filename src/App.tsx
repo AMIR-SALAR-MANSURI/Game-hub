@@ -4,7 +4,7 @@ import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import { useRef, useState } from "react";
 import { Genre } from "./hooks/useGenre";
-import { Platform } from "./hooks/useGame";
+import { Platform } from "./hooks/usePlatform";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/sortSelector";
 import GameHeading from "./components/GameHeading";
@@ -68,8 +68,8 @@ function App() {
             </Flex>
           </Box>
           <GameGrid
-            selectedPlatform={gameQuery.platform}
-            selectedGenre={gameQuery.genre}
+            // selectedPlatform={gameQuery.platform}
+            // selectedGenre={gameQuery.genre}
             gameQuery={gameQuery}
           />
         </GridItem>

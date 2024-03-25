@@ -3,7 +3,7 @@ import platform from "../data/platform";
 import { useQuery } from "@tanstack/react-query";
 import apiClinet, { FetchGenre } from "../services/api-clinet";
 
-interface Platform {
+export interface Platform {
   id: number;
   name: string;
   slug: string;
