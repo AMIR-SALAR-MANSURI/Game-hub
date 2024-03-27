@@ -12,8 +12,6 @@ import { useReactToPrint } from "react-to-print";
 import useGameQueryStore from "./store";
 
 function App() {
-  const { gameQuery, setGenreId, setPlatformId, setSearchText, setSortOrder } =
-    useGameQueryStore();
   return (
     <>
       <Grid
